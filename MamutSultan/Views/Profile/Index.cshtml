@@ -1,0 +1,22 @@
+@model ProfileViewModel
+
+@{
+    ViewData["Title"]= "Profile";
+}
+<form action="/profile" method="post" enctype = "/multipart/form-data">
+    <h1>Profile 🤤</h1>
+    <label class="pure-material-textfield-outlined">
+        <input placeholder="Profile name" type="text" name="ProfileName" value="@Model.ProfileName">
+        <div class = "error">@Html.ValidationMessageFor(m=>m.ProfileName)</div>
+    </label>
+    <p>
+    <label class="pure-material-textfield-outlined">
+        <input placeholder="Image" name="file" type="file" required>
+    </label>
+</p>
+    <label class="pure-material-checkbox">
+        <input type="checkbox">
+        <span>Remember me</span>
+    </label>
+    <button class="pure-material-button-contained" type="submit">Login</button>
+</form>

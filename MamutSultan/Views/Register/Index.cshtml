@@ -1,0 +1,32 @@
+@model RegisterViewModel
+
+@{
+    ViewData["Title"]= "Sing up";
+}
+<form class="registration" action="/register" method="post">
+    <h1>👋 Welcome!</h1>
+    <label class="pure-material-textfield-outlined">
+        <input placeholder="Email" type="email" name="Email" required value="@Model.Email">
+        <div class = "error">@Html.ValidationMessageFor(m=>m.Email)</div>
+    </label>
+
+    <label class="pure-material-textfield-outlined">
+        <input placeholder="Password" name="Password" type="password" required>
+        <div class = "error">@Html.ValidationMessageFor(m=>m.Password)</div>
+    </label>
+
+    <label class="pure-material-radio">
+        <input type="radio" name="type" required>
+        <span>Personal Account</span>
+    </label>
+
+    <label class="pure-material-radio">
+        <input type="radio" name="type" required>
+        <span>Business Account</span>
+    </label>
+    <label class="pure-material-checkbox">
+        <input type="checkbox" required>
+        <span>I agree to the <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Terms of Service</a></span>
+    </label>
+    <button class="pure-material-button-contained" type="submit">Sign Up</button>
+</form>
